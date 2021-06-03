@@ -1,0 +1,218 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Calendar/WeekCalendarContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Calendar/WeekCalendar.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/JetBrainsMono-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Calendar/DaysHBoxContainer.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.960784, 0.960784, 0.960784, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1920.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DaysHBoxContainer" type="HBoxContainer" parent="Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -33.0
+margin_right = 1920.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Control" parent="Control/DaysHBoxContainer"]
+margin_right = 55.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 55, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 59.0
+margin_right = 101.0
+margin_bottom = 33.0
+grow_vertical = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Sun"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="VSeparator2" type="VSeparator" parent="Control/DaysHBoxContainer"]
+margin_left = 105.0
+margin_right = 109.0
+margin_bottom = 33.0
+custom_styles/separator = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 113.0
+margin_right = 155.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Mon"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="VSeparator3" type="VSeparator" parent="Control/DaysHBoxContainer"]
+margin_left = 159.0
+margin_right = 163.0
+margin_bottom = 33.0
+custom_styles/separator = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 167.0
+margin_right = 209.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Tue"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="VSeparator4" type="VSeparator" parent="Control/DaysHBoxContainer"]
+margin_left = 213.0
+margin_right = 217.0
+margin_bottom = 33.0
+custom_styles/separator = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 221.0
+margin_right = 263.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Wed"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="VSeparator5" type="VSeparator" parent="Control/DaysHBoxContainer"]
+margin_left = 267.0
+margin_right = 271.0
+margin_bottom = 33.0
+custom_styles/separator = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 275.0
+margin_right = 317.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Thu"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="VSeparator6" type="VSeparator" parent="Control/DaysHBoxContainer"]
+margin_left = 321.0
+margin_right = 325.0
+margin_bottom = 33.0
+custom_styles/separator = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 329.0
+margin_right = 371.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Fri"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="VSeparator7" type="VSeparator" parent="Control/DaysHBoxContainer"]
+margin_left = 375.0
+margin_right = 379.0
+margin_bottom = 33.0
+custom_styles/separator = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Control/DaysHBoxContainer"]
+margin_left = 383.0
+margin_right = 425.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "Sat"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_top = 104.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer2" parent="ScrollContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 976.0
+
+[connection signal="_resize" from="ScrollContainer/PanelContainer2" to="Control/DaysHBoxContainer" method="_on_PanelContainer2__resize"]
