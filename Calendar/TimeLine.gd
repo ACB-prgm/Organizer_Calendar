@@ -1,25 +1,46 @@
-tool
 extends HBoxContainer
 
 
-var line
-var _time
+var label : Label
+var line : HSeparator
+
+var time
 
 
-func init(time: String, thickness: int, width: int, color: Color):
-	line = $VBoxContainer/ColorRect
-	line.color = color
-	line.rect_min_size = Vector2(width, thickness)
+func init(minutes, line_style, color: Color):
+	line = $HSeparator
+	line.set("custom_styles/separator", line_style)
 	
-	var label = $Label
-	label.text = time
+	label = $Label
+	label.set_text(min_to_time_string(minutes))
 	label.set("custom_colors/font_color", color)
+
+
+func _on_resize(_new_size):
+	TimeLineLocs.locs[time] = rect_global_position.y
+
+
+func min_to_time_string(mins:int) -> String:
+	var AM_PM := "AM"
+	var hour : = int(mins/60.0)
+	var minutes = mins%60
 	
-	if time != "":
-		_time = time
-
-
-func _on_resize(new_size):
-	line.rect_min_size.x = new_size.x - 55 # 55 is the time text width + spacing
-	if _time:
-		TimeLineLocs.locs[_time] = rect_global_position.y
+	
+	if hour == 0:
+		hour = 12
+	elif hour == 12:
+		AM_PM = "PM"
+	elif hour >= 13:
+		hour = hour - 12
+		AM_PM = "PM"
+	
+	var time_string
+	if mins % 60 == 0:
+		time_string =  "%s %s" % [hour, AM_PM]
+	else:
+		time_string = str(minutes)
+	
+	
+	time = [hour, minutes, AM_PM]
+	
+	return time_string
