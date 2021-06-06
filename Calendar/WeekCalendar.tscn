@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Calendar/WeekCalendarContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Calendar/WeekSelector/WeekSelector.tscn" type="PackedScene" id=2]
@@ -20,7 +20,24 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="Theme" id=4]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 11 )
+VScrollBar/styles/grabber_highlight = SubResource( 10 )
+VScrollBar/styles/grabber_pressed = SubResource( 10 )
+VScrollBar/styles/scroll = SubResource( 10 )
+VScrollBar/styles/scroll_focus = SubResource( 8 )
+
+[node name="WeekCalendar" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -168,6 +185,7 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource( 4 )
 follow_focus = true
 scroll_horizontal_enabled = false
 __meta__ = {
@@ -178,4 +196,4 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1920.0
-margin_bottom = 976.0
+margin_bottom = 1080.0

@@ -1,10 +1,15 @@
 extends Control
 
 
-const TRUE_MIN_SIZE = Vector2(100, 1080)
-
-func _ready():
-	rect_min_size = TRUE_MIN_SIZE
+export (String, 
+	"MON", 
+	"TUES", 
+	"WEDS", 
+	"THURS", 
+	"FRI", 
+	"SAT", 
+	"SUN"
+	) var weekday
 
 
 #func _on_resize(new_size):

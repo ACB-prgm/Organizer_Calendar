@@ -16,8 +16,8 @@ func init(minutes, line_style, color: Color):
 	label.set("custom_colors/font_color", color)
 
 
-func _on_resize(_new_size):
-	TimeLineLocs.locs[time] = rect_global_position.y
+func _ready():
+	TimeLineLocs.locs[time] = self
 
 
 func min_to_time_string(mins:int) -> String:
