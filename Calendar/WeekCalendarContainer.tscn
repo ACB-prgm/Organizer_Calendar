@@ -41,6 +41,7 @@ rect_min_size = Vector2( 55, 0 )
 [node name="CalendarEventVbox" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 59.0
 margin_right = 314.0
+size_flags_vertical = 1
 weekday = "SUN"
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]

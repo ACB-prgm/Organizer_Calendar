@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Calendar/WeekCalendarContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Calendar/WeekSelector/WeekSelector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fonts/JetBrainsMono-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Calendar/WeekCalendar.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.960784, 0.960784, 0.960784, 1 )
@@ -13,33 +14,41 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=8]
 size = 32
 outline_color = Color( 0.6, 0.6, 0.6, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="DynamicFont" id=9]
+size = 32
+outline_color = Color( 0.6, 0.6, 0.6, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="Theme" id=4]
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="Theme" id=7]
 VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
 VScrollBar/icons/increment_highlight = null
-VScrollBar/styles/grabber = SubResource( 11 )
-VScrollBar/styles/grabber_highlight = SubResource( 10 )
-VScrollBar/styles/grabber_pressed = SubResource( 10 )
-VScrollBar/styles/scroll = SubResource( 10 )
-VScrollBar/styles/scroll_focus = SubResource( 8 )
+VScrollBar/styles/grabber = SubResource( 4 )
+VScrollBar/styles/grabber_highlight = SubResource( 5 )
+VScrollBar/styles/grabber_pressed = SubResource( 5 )
+VScrollBar/styles/scroll = SubResource( 5 )
+VScrollBar/styles/scroll_focus = SubResource( 6 )
 
 [node name="WeekCalendar" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -158,14 +167,32 @@ align = 1
 valign = 2
 uppercase = true
 
-[node name="Label" type="Label" parent="TopControl"]
+[node name="YearLabel" type="Label" parent="TopControl"]
 margin_left = 16.0
 margin_top = 8.0
 margin_right = 111.0
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 3 )
+size_flags_horizontal = 5
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
-text = "MONTH"
+text = "2021"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonthLabel" type="Label" parent="TopControl"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -210.0
+margin_top = 8.0
+margin_right = 209.0
+margin_bottom = 51.0
+size_flags_horizontal = 5
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.6, 0.6, 0.6, 1 )
+text = "January"
+align = 1
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -185,7 +212,7 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource( 4 )
+theme = SubResource( 7 )
 follow_focus = true
 scroll_horizontal_enabled = false
 __meta__ = {

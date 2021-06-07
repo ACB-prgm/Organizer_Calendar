@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Calendar",
+"language": "GDScript",
+"path": "res://Calendar/class/Calendar.gd"
+}, {
+"base": "Reference",
+"class": "Date",
+"language": "GDScript",
+"path": "res://Calendar/class/Date.gd"
+} ]
+_global_script_class_icons={
+"Calendar": "",
+"Date": ""
+}
+
 [application]
 
 config/name="Organizer"
@@ -17,6 +33,11 @@ config/icon="res://icon.png"
 [autoload]
 
 TimeLineLocs="*res://Calendar/TimeLineLocs.gd"
+
+[debug]
+
+gdscript/completion/autocomplete_setters_and_getters=true
+gdscript/warnings/integer_division=false
 
 [display]
 
