@@ -4,9 +4,9 @@ enum Month { JAN = 1, FEB = 2, MAR = 3, APR = 4, MAY = 5, JUN = 6, JUL = 7,
 		AUG = 8, SEP = 9, OCT = 10, NOV = 11, DEC = 12 }
 
 const MONTH_NAME = [ 
-		"Jan", "Feb", "Mar", "Apr", 
-		"May", "Jun", "Jul", "Aug", 
-		"Sep", "Oct", "Nov", "Dec" ]
+		"January", "February", "March", "April", 
+		"May", "June", "July", "August", 
+		"September", "October", "November", "December" ]
 
 const WEEKDAY_NAME = [ 
 		"Sun", "Mon", "Tues", "Weds", 
@@ -27,6 +27,15 @@ func get_days_in_month(month : int, year : int) -> int:
 		number_of_days = 31
 	
 	return number_of_days
+
+
+func get_week_number(day : int, month : int, year : int) -> int:
+	var week_num = day
+	for _month in range(1, month):
+		week_num += get_days_in_month(_month, year)
+	
+	return week_num/7 + 1
+
 
 func get_weekday(day : int, month : int, year : int) -> int:
 	var t : Array = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]

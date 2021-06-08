@@ -3,7 +3,7 @@ extends HBoxContainer
 
 onready var weekLabel = $Label
 
-var week = 01
+var week = 01 setget set_week
 
 signal week_changed(_week)
 
@@ -29,10 +29,9 @@ func change_week(change:int):
 	
 	emit_signal("week_changed", week)
 	
-	var weekStr: String
-	if week < 10:
-		weekStr = "0%s" % week
-	else:
-		weekStr = str(week)
-	
-	weekLabel.text = "WEEK %s" % weekStr
+	weekLabel.text = "WEEK %s" % str(week).pad_zeros(2)
+
+
+func set_week(new_week):
+	week = new_week
+	weekLabel.text = "WEEK %s" % str(new_week).pad_zeros(2)

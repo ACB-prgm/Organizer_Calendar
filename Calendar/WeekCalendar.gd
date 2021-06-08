@@ -1,8 +1,5 @@
 extends VBoxContainer
 
-var calendar := Calendar.new()
-var selected_date := Date.new()
-
 
 
 func _ready():
