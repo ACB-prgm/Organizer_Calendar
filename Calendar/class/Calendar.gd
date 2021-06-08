@@ -1,4 +1,4 @@
-class_name Calendar
+extends Node
 
 enum Month { JAN = 1, FEB = 2, MAR = 3, APR = 4, MAY = 5, JUN = 6, JUL = 7,
 		AUG = 8, SEP = 9, OCT = 10, NOV = 11, DEC = 12 }
@@ -11,6 +11,13 @@ const MONTH_NAME = [
 const WEEKDAY_NAME = [ 
 		"Sun", "Mon", "Tues", "Weds", 
 		"Thurs", "Fri", "Sat" ]
+
+var weeks := {}
+
+
+func _ready():
+	weeks[OS.get_date()["year"]] = create_weeks_in_year(OS.get_date()["year"])
+
 
 func get_days_in_month(month : int, year : int) -> int:
 	var number_of_days : int
@@ -27,6 +34,26 @@ func get_days_in_month(month : int, year : int) -> int:
 		number_of_days = 31
 	
 	return number_of_days
+
+
+func create_weeks_in_year(year : int) -> Array:
+	var weeks := []
+	var week := []
+
+	for month in range(1, 13):
+		var days_in_month : int = get_days_in_month(month, year)
+		for day in range(1, days_in_month+1):
+			var weekday : int = get_weekday(day, month, year)
+			week.append([get_weekday_name(day, month, year), get_month_name(month), str(day).pad_zeros(2)])
+			if weekday == 6:
+				weeks.append(week.duplicate())
+				week.clear()
+	
+	return weeks
+
+
+func get_week_info(day : int, month : int, year : int) -> int:
+	return weeks.get(year)[get_week_number(day, month, year)]
 
 
 func get_week_number(day : int, month : int, year : int) -> int:
