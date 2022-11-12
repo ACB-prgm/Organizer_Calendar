@@ -1,12 +1,13 @@
 extends Node
 
 var selected_date := Date.new()
+var TimeLinelocs = {}
 var event_info := {}
 var calendar_settings := {}
-
+signal its_fucked
 
 func _ready():
-#	OS.execute("osascript", ["-e", 'display notification "Today at 4 PM" with title "Organizer" subtitle "Event"'], false)
+#	var PID = OS.execute("osascript", ["-e", 'display notification "Today at 4 PM" with title "Organizer" subtitle "Event"'], false)
 #	^ SENDS NOTIFICATIONS, BUT SUCKS LOL use this: https://github.com/ninest/aquaui/blob/master/docs/3-notification.md
 #	OS.alert("This will pause the thread")
 

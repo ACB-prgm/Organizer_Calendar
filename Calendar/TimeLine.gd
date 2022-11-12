@@ -17,7 +17,7 @@ func init(minutes, line_style, color: Color):
 
 
 func _ready():
-	TimeLineLocs.locs[time] = self
+	CalendarGlobals.TimeLinelocs[time] = self
 
 
 func min_to_time_string(mins:int) -> String:

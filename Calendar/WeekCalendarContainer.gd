@@ -10,6 +10,8 @@ var HourLineStyle = preload("res://Calendar/CustomStyles/Lines/HLines_Hour.tres"
 var QuarterLineStyle = preload("res://Calendar/CustomStyles/Lines/HLines_Quarters.tres")
 var line_tscn = preload("res://Calendar/TimeLine.tscn")
 
+signal week_changed(week)
+
 
 func _ready():
 # warning-ignore:return_value_discarded
@@ -54,3 +56,7 @@ func refresh_sizing():
 
 func _on_PanelContainer2_resized():
 	refresh_sizing()
+
+
+func _on_WeekSelector_week_changed(week, _year_change):
+	emit_signal("week_changed", week)

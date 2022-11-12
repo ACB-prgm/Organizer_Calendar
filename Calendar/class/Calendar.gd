@@ -37,7 +37,7 @@ func get_days_in_month(month : int, year : int) -> int:
 
 
 func create_weeks_in_year(year : int) -> Array:
-	var weeks := []
+	var _weeks := []
 	var week := []
 
 	for month in range(1, 13):
@@ -45,11 +45,20 @@ func create_weeks_in_year(year : int) -> Array:
 		for day in range(1, days_in_month+1):
 			var weekday : int = get_weekday(day, month, year)
 			week.append([get_weekday_name(day, month, year), get_month_name(month), str(day).pad_zeros(2)])
+			
+			if month == 12 and day == days_in_month:
+				var extra_days = 1
+				for i in range(1, 7):
+					if i > weekday:
+						week.append([get_weekday_name(extra_days, 1, year+1), get_month_name(1), str(extra_days).pad_zeros(2)])
+						extra_days += 1
+						weekday = i
+			
 			if weekday == 6:
-				weeks.append(week.duplicate())
+				_weeks.append(week.duplicate())
 				week.clear()
 	
-	return weeks
+	return _weeks
 
 
 func get_week_info(day : int, month : int, year : int) -> int:
@@ -74,8 +83,13 @@ func get_weekday_name(day : int, month : int, year : int) -> String:
 	var day_num = get_weekday(day, month, year)
 	return WEEKDAY_NAME[day_num]
 
+
 func get_month_name(month : int) -> String:
 	return MONTH_NAME[month - 1]
+
+func get_month_from_name(month : String) -> int:
+	return MONTH_NAME.find(month) + 1
+
 
 func hour() -> int:
 	return OS.get_datetime()["hour"]

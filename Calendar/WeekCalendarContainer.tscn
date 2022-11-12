@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.960784, 0.960784, 0.960784, 1 )
 
-[node name="PanelContainer2" type="PanelContainer"]
+[node name="WeekCalendarContainer" type="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -42,7 +42,7 @@ rect_min_size = Vector2( 55, 0 )
 margin_left = 59.0
 margin_right = 314.0
 size_flags_vertical = 1
-weekday = "SUN"
+weekday = "Sun"
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
 margin_left = 318.0
@@ -53,6 +53,7 @@ custom_styles/separator = ExtResource( 4 )
 [node name="CalendarEventColumn" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 326.0
 margin_right = 582.0
+weekday = "Mon"
 
 [node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
 margin_left = 586.0
@@ -63,7 +64,7 @@ custom_styles/separator = ExtResource( 4 )
 [node name="CalendarEventColumn3" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 594.0
 margin_right = 849.0
-weekday = "TUES"
+weekday = "Tues"
 
 [node name="VSeparator5" type="VSeparator" parent="HBoxContainer"]
 margin_left = 853.0
@@ -74,7 +75,7 @@ custom_styles/separator = ExtResource( 4 )
 [node name="CalendarEventColumn4" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 861.0
 margin_right = 1117.0
-weekday = "WEDS"
+weekday = "Weds"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 margin_left = 1121.0
@@ -85,7 +86,7 @@ custom_styles/separator = ExtResource( 4 )
 [node name="CalendarEventColumn5" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 1129.0
 margin_right = 1384.0
-weekday = "THURS"
+weekday = "Thurs"
 
 [node name="VSeparator4" type="VSeparator" parent="HBoxContainer"]
 margin_left = 1388.0
@@ -96,7 +97,7 @@ custom_styles/separator = ExtResource( 4 )
 [node name="CalendarEventColumn6" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 1396.0
 margin_right = 1652.0
-weekday = "FRI"
+weekday = "Fri"
 
 [node name="VSeparator6" type="VSeparator" parent="HBoxContainer"]
 margin_left = 1656.0
@@ -107,9 +108,17 @@ custom_styles/separator = ExtResource( 4 )
 [node name="CalendarEventColumn2" parent="HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 1664.0
 margin_right = 1920.0
-weekday = "SAT"
+weekday = "Sat"
 
 [node name="InversionRect" type="ColorRect" parent="."]
 material = ExtResource( 2 )
 margin_right = 1920.0
 margin_bottom = 1080.0
+
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventVbox" method="_on_WeekCalendarContainer_week_changed"]
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventColumn" method="_on_WeekCalendarContainer_week_changed"]
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventColumn3" method="_on_WeekCalendarContainer_week_changed"]
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventColumn4" method="_on_WeekCalendarContainer_week_changed"]
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventColumn5" method="_on_WeekCalendarContainer_week_changed"]
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventColumn6" method="_on_WeekCalendarContainer_week_changed"]
+[connection signal="week_changed" from="." to="HBoxContainer/CalendarEventColumn2" method="_on_WeekCalendarContainer_week_changed"]

@@ -1,11 +1,11 @@
 extends HBoxContainer
 
 
-onready var weekLabel = $Label
+onready var weekLabel := $Label
 
-var week = 01 setget set_week
+var week := 1 setget set_week
 
-signal week_changed(_week)
+signal week_changed(_week, year_change)
 
 
 func _ready():
@@ -22,12 +22,15 @@ func _on_RightButton_pressed():
 func change_week(change:int):
 	week += change
 	
+	var year_change : int = 0
 	if week < 1:
+		year_change = -1
 		week = 52
 	elif week > 52:
+		year_change = 1
 		week = 1
 	
-	emit_signal("week_changed", week)
+	emit_signal("week_changed", week, year_change)
 	
 	weekLabel.text = "WEEK %s" % str(week).pad_zeros(2)
 

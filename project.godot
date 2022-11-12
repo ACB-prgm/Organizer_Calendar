@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "CalendarEventInfo",
+"language": "GDScript",
+"path": "res://CalendarEventInfo.gd"
+}, {
+"base": "Reference",
 "class": "Date",
 "language": "GDScript",
 "path": "res://Calendar/class/Date.gd"
 } ]
 _global_script_class_icons={
+"CalendarEventInfo": "",
 "Date": ""
 }
 
@@ -22,13 +28,16 @@ _global_script_class_icons={
 
 config/name="Organizer"
 run/main_scene="res://Calendar/WeekCalendar.tscn"
+boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.960784, 0.960784, 0.960784, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-TimeLineLocs="*res://Calendar/TimeLineLocs.gd"
 CalendarGlobals="*res://CalendarGlobals.gd"
 Calendar="*res://Calendar/class/Calendar.gd"
+AddEventPopup="*res://Calendar/AddEventPopup/AddEventPopup.tscn"
 
 [debug]
 
@@ -46,5 +55,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0.6, 0.6, 0.6, 1 )
 environment/default_environment="res://default_env.tres"
